@@ -4,7 +4,7 @@
 
 The project contains automated tests for Ackveo page web 
 
-## Instalation
+## Installation
 
 ```bash
    git clone https://github.com/your-username/your-project.git
