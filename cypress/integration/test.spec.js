@@ -25,4 +25,13 @@ describe('ngx demo Application main ', () => {
             .should('have.text','month')
 
     })
+    
+    it('Get orders by profit', ()=>{
+        cy.get('[tabtitle="Orders"]').should('have.class','content-active')
+        cy.get('.tab-link')
+            .find('span').contains('Profit')
+            .click()
+        
+        cy.get('[tabtitle="Profit"]').should('have.class','content-active')
+    })
 })
