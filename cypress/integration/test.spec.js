@@ -11,13 +11,27 @@ describe('ngx demo Application main ', () => {
         cy.contains(' Learn more ').should('exist')
     })
     it('filter trafic by components', () =>{
-        cy.contains('Traffic')
-            .parent()
+        cy.contains('ngx-traffic-cards-header','Traffic')
+            .find('button')
+            .contains('week')
             .click()
-            
 
-        cy.get('nb-option')
-        .should('have.length')
+        cy.get('.option-list')
+            .contains('nb-option','month')
+            .click();
+        
+        cy.contains('ngx-traffic-cards-header','Traffic')
+            .find('button')
+            .should('have.text','month')
 
+    })
+    
+    it('Get orders by profit', ()=>{
+        cy.get('[tabtitle="Orders"]').should('have.class','content-active')
+        cy.get('.tab-link')
+            .find('span').contains('Profit')
+            .click()
+        
+        cy.get('[tabtitle="Profit"]').should('have.class','content-active')
     })
 })
